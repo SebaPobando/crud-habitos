@@ -13,9 +13,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div id="welcome-container">
+    <h1>¡Bienvenido a Habitapp!</h1>
+    <p>Organiza tus hábitos y comienza a construir una vida mejor.</p>
+
+    <div class="button-group">
+      <ion-button expand="block" color="primary" (click)="goToAgregar()">Agregar Hábito</ion-button>
+      <ion-button expand="block" color="tertiary" (click)="goToListar()">Mis Hábitos</ion-button>
+    </div>
   </div>
 </ion-content>

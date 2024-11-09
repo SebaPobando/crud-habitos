@@ -1,0 +1,60 @@
+.content {
+    background-color: #f4f6f8; /* Color de fondo más claro */
+    padding: 16px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .input-field {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --border-radius: 8px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .button-primary {
+    width: 48%;
+    background-color: #4caf50; /* Botón verde para Agregar */
+    color: white;
+  }
+  
+  .button-primary:hover {
+    background-color: #45a049;
+  }
+  
+  .button-secondary {
+    width: 48%;
+    background-color: #ff9800; /* Botón naranja para Volver */
+    color: white;
+  }
+  
+  .button-secondary:hover {
+    background-color: #fb8c00;
+  }
+  
+  /* Estilo de los títulos */
+  ion-title {
+    color: #333; /* Color oscuro para el título */
+    font-weight: bold;
+  }
+  
+  /* Mejorar el espaciado en los inputs */
+  ion-input {
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+  
+  ion-button {
+    --border-radius: 8px;
+  }
+  
