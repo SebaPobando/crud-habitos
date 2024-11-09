@@ -66,7 +66,7 @@ export class ListarHabitosPage implements OnInit {
     }
   ];
 
-  // Lista que mantiene los hábitos
+  // Lista que mantiene los hábitos guardados
   habitos: Habito[] = [];
 
   constructor(private router: Router) {}
@@ -81,26 +81,30 @@ export class ListarHabitosPage implements OnInit {
     const habitosGuardados = localStorage.getItem('habitos');
     let habitosDesdeStorage = habitosGuardados ? JSON.parse(habitosGuardados) : [];
 
-    // Combina los hábitos predeterminados con los hábitos guardados, evitando duplicados
-    this.habitos = [...this.habitosPredeterminados, ...habitosDesdeStorage];
-    
-    // Eliminar duplicados basados en el nombre del hábito
-    this.habitos = this.eliminarDuplicados(this.habitos);
-  }
+    // Combinamos los hábitos predeterminados con los hábitos guardados
+    // Se asegura que solo los hábitos guardados por el usuario sean combinados
+    this.habitos = [...habitosDesdeStorage];
 
-  eliminarDuplicados(habitos: Habito[]): Habito[] {
-    return habitos.filter((value, index, self) =>
-      index === self.findIndex((t) => (
-        t.habito === value.habito
-      ))
-    );
+    // Filtrar duplicados: los hábitos ya guardados no deberían aparecer como predeterminados
+    this.habitosPredeterminados.forEach(habitoPredeterminado => {
+      // Si el hábito predeterminado no está en la lista guardada, lo agregamos
+      if (!this.habitos.some(habito => habito.habito === habitoPredeterminado.habito)) {
+        this.habitos.push(habitoPredeterminado);
+      }
+    });
   }
 
   eliminarHabito(index: number) {
-    // Eliminar el hábito de la lista
+    // Obtener el nombre del hábito a eliminar
+    const habitoAEliminar = this.habitos[index].habito;
+
+    // Eliminar el hábito de la lista de hábitos guardados
     this.habitos.splice(index, 1);
 
-    // Actualizar el localStorage con la lista actualizada
+    // Si el hábito a eliminar es uno de los hábitos predeterminados, también lo eliminamos de los predeterminados
+    this.habitosPredeterminados = this.habitosPredeterminados.filter(habito => habito.habito !== habitoAEliminar);
+
+    // Actualizar el localStorage con la lista de hábitos
     this.actualizarHabitosEnStorage();
   }
 
