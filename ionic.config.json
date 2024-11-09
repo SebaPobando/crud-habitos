@@ -1,0 +1,7 @@
+{
+  "name": "crud-habitos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
