@@ -11,6 +11,16 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- Mensaje de éxito -->
+  <div *ngIf="mensajeExito" class="mensaje-exito">
+    ¡Hábito agregado con éxito!
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="mensajeError" class="mensaje-error">
+    <p>{{ mensajeError }}</p>
+  </div>
+
   <div class="form-container">
     <!-- Campo para el nombre del hábito -->
     <ion-input label="Hábito" label-placement="floating" fill="outline" placeholder="Nombre del hábito"

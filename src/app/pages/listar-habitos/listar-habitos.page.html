@@ -11,32 +11,40 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- Iteración sobre la lista de hábitos -->
-  <ion-card *ngFor="let habito of habitos; let i = index">
-    <img alt="Estudiar" [src]="habito.imagenUrl" />
-    <ion-card-header>
-      <ion-card-title>{{ habito.habito }}</ion-card-title>
-      <ion-card-subtitle>{{ habito.descripcion }}</ion-card-subtitle>
-    </ion-card-header>
+  <!-- Mostrar mensaje cuando no haya hábitos -->
+  <div *ngIf="habitos.length === 0" class="no-habitos">
+    <p>No hay hábitos disponibles. ¡Agrega uno nuevo para comenzar!</p>
+  </div>
 
-    <ion-card-content>
-      Días a realizar: <br />
-      {{ habito.dias.join(', ') }}
-    </ion-card-content>
+  <!-- Contenedor para la lista de hábitos -->
+  <ng-container *ngIf="habitos.length > 0">
+    <ion-card *ngFor="let habito of habitos; let i = index">
+      <img alt="Estudiar" [src]="habito.imagenUrl" />
+      <ion-card-header>
+        <ion-card-title>{{ habito.habito }}</ion-card-title>
+        <ion-card-subtitle>{{ habito.descripcion }}</ion-card-subtitle>
+      </ion-card-header>
 
-    <ion-card-content>
-      Hora de Inicio: <br />
-      {{ habito.horaInicio }}
-    </ion-card-content>
+      <ion-card-content>
+        Días a realizar: <br />
+        {{ habito.dias.join(', ') }}
+      </ion-card-content>
 
-    <ion-card-content>
-      Hora de Finalización: <br />
-      {{ habito.horaFinal }}
-    </ion-card-content>
+      <ion-card-content>
+        Hora de Inicio: <br />
+        {{ habito.horaInicio }}
+      </ion-card-content>
 
-    <ion-button (click)="eliminarHabito(i)" color="danger">Eliminar</ion-button>
-  </ion-card>
+      <ion-card-content>
+        Hora de Finalización: <br />
+        {{ habito.horaFinal }}
+      </ion-card-content>
 
+      <ion-button (click)="eliminarHabito(i)" color="danger">Eliminar</ion-button>
+    </ion-card>
+  </ng-container>
+
+  <!-- Botón fijo en la parte inferior derecha -->
   <ion-button color="warning" (click)="goToHome()" style="position: fixed; bottom: 20px; right: 20px; z-index: 10;">
     Volver
   </ion-button>
