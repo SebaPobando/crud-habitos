@@ -25,7 +25,6 @@ export class EditarHabitoPage implements OnInit {
   constructor(private router: Router, private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
-    // Recuperar el índice
     const index = localStorage.getItem('editarIndex');
     console.log('Índice recuperado:', index);
 
@@ -37,14 +36,12 @@ export class EditarHabitoPage implements OnInit {
 
     this.index = parseInt(index, 10);
 
-    // Validar el índice
     if (isNaN(this.index) || this.index < 0) {
       this.mensajeError = 'Índice inválido.';
       console.error(this.mensajeError);
       return;
     }
 
-    // Recuperar hábitos guardados
     const habitosGuardados = JSON.parse(localStorage.getItem('habitos') || '[]');
     console.log('Hábitos guardados:', habitosGuardados);
 
@@ -54,7 +51,6 @@ export class EditarHabitoPage implements OnInit {
       return;
     }
 
-    // Cargar los datos del hábito
     const habito = habitosGuardados[this.index];
     console.log('Hábito a editar:', habito);
 
@@ -68,7 +64,6 @@ export class EditarHabitoPage implements OnInit {
   editarHabito() {
     this.mensajeError = '';
 
-    // Validaciones
     if (!this.habito) this.mensajeError += 'El campo "Hábito" es obligatorio.\n';
     if (!this.descripcion) this.mensajeError += 'El campo "Descripción" es obligatorio.\n';
     if (this.dias.length === 0) this.mensajeError += 'Debe seleccionar al menos un día.\n';
@@ -97,7 +92,7 @@ export class EditarHabitoPage implements OnInit {
       return;
     }
 
-    // Actualizar el hábito
+    // Actualización de los hábitos
     habitosGuardados[this.index] = {
       habito: this.habito,
       descripcion: this.descripcion,
@@ -106,6 +101,7 @@ export class EditarHabitoPage implements OnInit {
       horaFinal: this.horaFinal,
     };
 
+    // Guardar los cambios en localStorage
     localStorage.setItem('habitos', JSON.stringify(habitosGuardados));
     console.log('Hábito actualizado correctamente:', habitosGuardados[this.index]);
 
