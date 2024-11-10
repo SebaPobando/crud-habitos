@@ -77,4 +77,8 @@ export class ListarHabitosPage implements OnInit {
   goToHome() {
     this.router.navigate(['../home']);
   }
+
+  goToEdit() {
+    this.router.navigate(['/editar-habito']);
+  }
 }

@@ -22,12 +22,12 @@
   </div>
 
   <div class="form-container">
-    <!-- Campo para el nombre del hábito -->
+    <!-- Nombre del hábito -->
     <ion-input label="Hábito" label-placement="floating" fill="outline" placeholder="Nombre del hábito"
       [(ngModel)]="habito" class="input-field">
     </ion-input>
 
-    <!-- Campo para la descripción del hábito -->
+    <!-- Descripción del hábito -->
     <ion-input label="Descripción" label-placement="floating" fill="outline" placeholder="Describe la actividad"
       [(ngModel)]="descripcion" class="input-field">
     </ion-input>
@@ -44,17 +44,17 @@
       <ion-select-option value="Domingo">Domingo</ion-select-option>
     </ion-select>
 
-    <!-- Campo para la hora de inicio -->
+    <!-- Hora de inicio -->
     <ion-input label="Hora de Inicio" label-placement="floating" fill="outline"
       placeholder="Ingrese el horario para realizar el hábito" type="time" [(ngModel)]="horaInicio" class="input-field">
     </ion-input>
 
-    <!-- Campo para la hora de finalización -->
+    <!-- Hora de finalización -->
     <ion-input label="Hora de Finalización" label-placement="floating" fill="outline"
       placeholder="Ingrese el horario para realizar el hábito" type="time" [(ngModel)]="horaFinal" class="input-field">
     </ion-input>
 
-    <!-- Botones para agregar el hábito o volver -->
+    <!-- Agregar el hábito o volver -->
     <div class="button-container">
       <ion-button (click)="agregarHabito()" color="secondary" class="button-primary">Agregar</ion-button>
       <ion-button (click)="goToHome()" color="warning" class="button-secondary">Volver</ion-button>

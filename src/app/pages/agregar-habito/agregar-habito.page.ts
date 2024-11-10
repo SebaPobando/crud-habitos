@@ -17,18 +17,18 @@ export class AgregarHabitoPage implements OnInit {
   dias: string[] = [];
   horaInicio: string = '';
   horaFinal: string = '';
-  mensajeError: string = ''; // Variable para el mensaje de error
-  mensajeExito: boolean = false; // Variable para controlar el mensaje de éxito
+  mensajeError: string = ''; 
+  mensajeExito: boolean = false; 
 
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
   agregarHabito() {
-    // Limpiar el mensaje de error al iniciar la validación
+    // Limpiar el mensaje de error 
     this.mensajeError = '';
 
-    // Validar que todos los campos estén completos
+    // Validaciones
     if (!this.habito) {
       this.mensajeError += 'El campo "Hábito" es obligatorio.\n';
     }
@@ -84,14 +84,14 @@ export class AgregarHabitoPage implements OnInit {
     // Mostrar el mensaje de éxito
     this.mensajeExito = true;
 
-    // Limpiar los campos de entrada
+    // Limpiar los inputs
     this.habito = '';
     this.descripcion = '';
     this.dias = [];
     this.horaInicio = '';
     this.horaFinal = '';
 
-    // Ocultar el mensaje de éxito después de 3 segundos
+    // Tiempo para ocultar mensaje de error
     setTimeout(() => {
       this.mensajeExito = false;
     }, 5000);

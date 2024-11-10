@@ -32,3 +32,55 @@
     }
   }
 }
+
+// Centraliza el contenido de bienvenida y el grupo de botones
+#welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  padding: 0 20px;
+
+  // Título de bienvenida
+  h1 {
+    font-size: 2rem;
+    color: #3880ff; // Color de Ionic primario
+    margin-bottom: 10px;
+  }
+
+  // Texto descriptivo
+  p {
+    font-size: 1.2rem;
+    color: #666666;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  // Estilo para los botones
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+
+    ion-button {
+      --border-radius: 8px;   // Bordes redondeados
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Sombra para realce
+      --padding-top: 12px;
+      --padding-bottom: 12px;
+      font-weight: bold;
+    }
+
+    ion-button[color="primary"] {
+      background-color: #3880ff;
+    }
+
+    ion-button[color="tertiary"] {
+      background-color: #3dc2ff;
+    }
+  }
+  
+}
+
